@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Passport — free soulbound passport for Agent ID holders</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #0b0e14; color: #eee; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { color: #f0b90b; }
+  .card { border: 1px solid #f0b90b; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+  button { background: #f0b90b; color: #111; border: 0; border-radius: 8px; padding: 0.6rem 1.2rem; font-size: 1rem; cursor: pointer; margin-right: 0.5rem; }
+  button:disabled { background: #555; color: #aaa; cursor: not-allowed; }
+  .muted { color: #999; font-size: 0.9rem; }
+  .ok { color: #4ade80; } .bad { color: #f87171; }
+  #passportImg { max-width: 100%; border-radius: 8px; }
+  code { word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>Agent Passport</h1>
+<p>Free soulbound passport for Agent ID holders. One per Agent ID. Daily check-ins build an on-chain streak.</p>
+<p class="muted">Free mint — gas only. No fees, no payments, no returns promised. Nothing here is trading, and nothing here is an investment.</p>
+
+<div class="card">
+  <button id="connectBtn">Connect wallet</button>
+  <p>Address: <code id="address">—</code></p>
+  <p>Network: <span id="network">—</span></p>
+  <p>Agent ID: <span id="agentIdStatus">—</span></p>
+</div>
+
+<div class="card">
+  <h2>Mint your passport</h2>
+  <p id="mintReason" class="muted">Connect your wallet first.</p>
+  <button id="mintBtn" disabled>Mint (free, gas only)</button>
+</div>
+
+<div class="card">
+  <h2>Daily check-in</h2>
+  <p id="checkinReason" class="muted">Mint a passport first.</p>
+  <button id="checkinBtn" disabled>Check in today</button>
+</div>
+
+<div class="card" id="passportCard" style="display:none">
+  <h2>Your passport</h2>
+  <img id="passportImg" alt="Agent Passport card">
+  <p>Token ID: <span id="tokenId">—</span></p>
+  <p>Streak: <span id="streak">—</span> days</p>
+  <p>Total check-ins: <span id="totalCheckins">—</span></p>
+  <p>Last check-in day (UTC): <span id="lastDay">—</span></p>
+</div>
+
+<p class="muted">Every transaction is confirmed by you in your own wallet. This site never asks for a QR-code login, never auto-signs, and never asks for a seed phrase, private key, or pairing code. Contract: <code id="contractAddr">—</code></p>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.15.0/dist/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
